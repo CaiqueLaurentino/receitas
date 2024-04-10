@@ -30,10 +30,10 @@ http://localhost:3333
 # Funcionalidades
 Este projeto oferece as seguintes funcionalidades:
 
-# Autenticação de usuários: 
+Autenticação de usuários: 
 Os usuários podem se cadastrar, fazer login e logout na aplicação.
 
-# Listagem de receitas: 
+Listagem de receitas: 
 A aplicação consome uma API para listar receitas do site Tudo Receitas.
 
 # Tecnologias Utilizadas
