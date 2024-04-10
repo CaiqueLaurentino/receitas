@@ -38,6 +38,9 @@ A aplicação consome uma API para listar receitas do site Tudo Receitas.
 
 # Tecnologias Utilizadas
 AdonisJS: Framework Node.js para construção de aplicações web.
+
 Edge: Template engine padrão do AdonisJS.
+
 Axios: Cliente HTTP para consumir a API de listagem de receitas.
+
 MySQL: Banco de dados relacional para armazenamento de dados dos usuários e receitas.
