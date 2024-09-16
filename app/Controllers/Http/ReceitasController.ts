@@ -20,7 +20,7 @@ export default class ReceitasController {
 
       let recipes = await this.searchRecipesOnTudoReceitas(ingredients)
 
-      return view.render('index', { recipes })
+      return view.render('home/index', { recipes })
     } catch (error) {
       console.error(error)
       return response.status(500).json({ error: 'Failed to retrieve recipes' })
