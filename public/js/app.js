@@ -1,7 +1,6 @@
 $(document).ready(function () {
   $('#receitasTable').DataTable({
     paging: true,
-    pageLength: 10, // Limitar a 10 entradas por página
     language: {
       search: 'Pesquisar:',
       lengthMenu: 'Mostrar _MENU_ itens por página',
@@ -18,13 +17,16 @@ $(document).ready(function () {
     },
   })
 
-  // Delegar o evento para o body ou para a tabela
   $('#receitasTable tbody').on('click', '.expand-btn', function () {
-    $(this).prev('.short-description').toggleClass('expanded')
-    $(this).text($(this).text() === 'Ver mais' ? 'Ver menos' : 'Ver mais')
+    var $cell = $(this).closest('td.description-cell')
+    var $description = $cell.find('.short-description')
+    var isExpanded = $cell.hasClass('expanded')
+
+    $cell.toggleClass('expanded')
+
+    $(this).text(isExpanded ? 'Ver mais' : 'Ver menos')
   })
 
-  // Handle form submit
   $('#searchForm').on('submit', function () {
     var query = $('#ingredients').val()
     $('#searchQuery').text(query || '')

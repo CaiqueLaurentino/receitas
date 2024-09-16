@@ -5,23 +5,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Receitas</title>
-
   <link rel="stylesheet" href="/css/app.css">
-  <script src="/js/app.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script type="text/javascript" charset="utf8"
     src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
+  <script src="/js/app.js"></script>
 </head>
 
 <body class="bg-gray-50 font-sans leading-normal tracking-normal">
-
   <div class="container mx-auto px-4 py-8">
     <header class="mb-8">
       <h1 class="text-4xl font-extrabold text-gray-800">Receitas</h1>
-      <p class="text-lg text-gray-600 mt-1">Encontre as melhores receitas com base nos ingredientes que você possui.</p>
+      <p class="text-lg text-gray-600 mt-1">
+        Encontre as melhores receitas com base nos ingredientes que você possui. As receitas são provenientes do site
+        <a href="https://www.tudoreceitas.com" target="_blank" class="text-blue-500 hover:underline">Tudo Receitas</a>.
+      </p>
     </header>
 
     @if(auth.isAuthenticated)
@@ -30,10 +30,13 @@
     </div>
 
     <form id="searchForm" action="/" method="GET" class="mb-6 flex flex-col items-start">
+      <label for="ingredients" class="text-md font-medium text-gray-700">Digite os ingredientes:</label>
       <input type="text" id="ingredients" name="ingredients" placeholder="Digite os ingredientes"
         class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 transition-colors duration-300">
       <button type="submit"
-        class="mt-4 px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors duration-300">Pesquisar</button>
+        class="mt-4 px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors duration-300">
+        Pesquisar
+      </button>
       <p id="searchInfo" class="mt-4 text-md text-gray-700">Você pesquisou por: <span id="searchQuery"></span></p>
     </form>
 
@@ -56,14 +59,14 @@
           <tr>
             <td class="truncate">{{ recipe.title }}</td>
             <td class="truncate text-blue-600">
-              <a href="{{ recipe.link }}" target="_blank" class="underline hover:text-blue-800">Link</a>
+              <a href="{{ recipe.link }}" target="_blank" class="underline hover:text-blue-800">Receita</a>
             </td>
             <td class="truncate">{{ recipe.difficulty }}</td>
             <td class="truncate">{{ recipe.category }}</td>
             <td class="truncate">{{ recipe.servings }}</td>
             <td class="truncate">{{ recipe.duration }}</td>
             <td class="truncate">{{ recipe.dishType }}</td>
-            <td class="truncate description">
+            <td class="truncate description-cell">
               <div class="short-description">
                 {{ recipe.description }}
               </div>
@@ -75,9 +78,7 @@
       </table>
     </div>
     @endif
-
   </div>
-
 </body>
 
 </html>
